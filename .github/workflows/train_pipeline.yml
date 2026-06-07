@@ -1,1 +1,35 @@
+name: Training Pipeline (daily)
 
+on:
+  schedule:
+    - cron: "30 0 * * *"      # every day at 00:30 UTC
+  workflow_dispatch:           # allows manual run from the Actions tab
+
+permissions:
+  contents: write              # needed to commit the updated model
+
+jobs:
+  train-model:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements-pipeline.txt
+
+      - name: Run training pipeline
+        run: python scripts/train_pipeline.py
+
+      - name: Commit updated model
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add aqi_models.pkl
+          git commit -m "Retrain model [skip ci]" || echo "No changes to commit"
+          git push
