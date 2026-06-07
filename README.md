@@ -2,7 +2,7 @@
 
 *Islamabad Air Quality Forecasting System*
 
-**Author:** Amna Nazir | **Program:** 10P Shine Internship Program
+**Author:** Amna Nazir | **Program:** 10P Shine Internship Program|**Domain:** Data Science
 
 An end-to-end machine learning system that forecasts the Air Quality Index (AQI) for Islamabad over the next three days. The project fetches live air-quality and weather data, engineers predictive features, trains multi-output regression models, and serves the forecast through an interactive Streamlit dashboard.
 
