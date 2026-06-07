@@ -2,7 +2,7 @@
 
 *Islamabad Air Quality Forecasting System*
 
-**Author:** Amna Nazir | **University:** FAST NUCES (Islamabad Campus) | **Program:** 10P Shine Internship Program
+**Author:** Amna Nazir | **Program:** 10P Shine Internship Program
 
 An end-to-end machine learning system that forecasts the Air Quality Index (AQI) for Islamabad over the next three days. The project fetches live air-quality and weather data, engineers predictive features, trains multi-output regression models, and serves the forecast through an interactive Streamlit dashboard.
 
@@ -44,7 +44,7 @@ aqi-dashboard/
 |- app.py                          # Streamlit dashboard
 |- aqi_models.pkl                  # Trained multi-output model
 |- requirements.txt                # Python dependencies
-|- aqi_predictor_islamabad.ipynb   # Full training pipeline (optional in repo)
+|- Pearls AQI Predictor.ipynb   # Full training pipeline 
 |- README.md
 ```
 
@@ -93,14 +93,11 @@ Accuracy is highest for the 24-hour horizon and decreases with the forecast dist
 
 All data is provided by Open-Meteo (https://open-meteo.com), which offers free air-quality and historical weather APIs without authentication.
 
-## Limitations
-
-- The model captures daily and seasonal patterns well but underestimates sudden pollution spikes.
-- Forecast accuracy declines at longer horizons.
-- Predictions are estimates and should not replace official air-quality monitoring.
-
+## Conclusion
+This project delivers a complete, automated AQI forecasting system for Islamabad. Two years of air-quality and weather data are used to train multi-output models that predict PM2.5 for the next 24, 48, and 72 hours, which are converted to the US EPA Air Quality Index. The 24-hour forecast achieves the strongest accuracy, with performance tapering at longer horizons, as is typical for air-quality forecasting. The trained model is served through an interactive Streamlit dashboard, while scheduled GitHub Actions keep the feature store and model up to date without manual intervention. Together these components demonstrate an end-to-end machine learning pipeline from data ingestion to live deployment.
 ## Future Work
 
-- Automated retraining via scheduled pipelines (GitHub Actions)
-- A cloud feature store and model registry
-- Support for multiple cities
+Migrate the feature store to a managed cloud database (e.g. MongoDB Atlas or Hopsworks)
+Add sequence models (LSTM) and compare against the tree-based ensemble
+Support multiple cities with per-city models
+Send email or SMS alerts when hazardous AQI is forecast
