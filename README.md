@@ -83,9 +83,9 @@ Validation results on a held-out chronological test set (approximate):
 
 | Horizon | MAE   | R-squared |
 |---------|-------|-----------|
-| 24h     | ~8.6  | ~0.72     |
-| 48h     | ~9.6  | ~0.66     |
-| 72h     | ~10.0 | ~0.62     |
+| 24h     | ~8.7  | ~0.706     |
+| 48h     | ~9.83  | ~0.62     |
+| 72h     | ~10.20| ~0.602     |
 
 Accuracy is highest for the 24-hour horizon and decreases with the forecast distance, which is expected for air-quality forecasting. Islamabad's pollution is more volatile than coastal cities, so its forecasts are inherently harder than for smoother locations.
 
