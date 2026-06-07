@@ -34,7 +34,7 @@ aqi-dashboard/
 |- app.py                          # Streamlit dashboard
 |- aqi_models.pkl                  # Trained multi-output model
 |- requirements.txt                # Python dependencies
-|- aqi_predictor_islamabad.ipynb   # Full training pipeline (optional in repo)
+|- aqi_predictor_islamabad.ipynb   # Full training pipeline 
 |- README.md
 ```
 
